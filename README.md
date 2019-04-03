@@ -3,6 +3,13 @@
 
 ### What it does
 #### Takes a sentence and converts the words in that sentence into Pig Latin.
+## Specifications
+* Checks if numerical
+* Eliminates punctuation
+* Alters words according to starting char (Vowel vs. Consonant)
+* Checks for word length
+* Edits words based on how many consonants are at the beginning
+* looks for 'qu' and moves them together
 #### The MIT License
 
 #### Copyright (c) 2019 Ian Christner
