@@ -1,3 +1,7 @@
 .centerW{
   text-align: center;
 }
+#answerDiv > p{
+  font-weight: bold;
+  font-style: italic;
+}

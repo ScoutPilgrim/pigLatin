@@ -16,7 +16,6 @@ $(document).ready(function(){
     changeWords(myWords, n);
     console.log(pigWords);
     answer = convertSentence(pigWords);
-
     $('#answerDiv').find('p').text(answer);
   });
   function changeWords(myArr, len){
@@ -140,6 +139,7 @@ $(document).ready(function(){
     console.log('Arrays have been reset!');
   };
   function convertSentence(myArr){
+    console.log('Converting our array into a sentence to display!');
     var answer = '';
     var buffer = ' ';
     for(var i = 0; i < myArr.length; i++){
