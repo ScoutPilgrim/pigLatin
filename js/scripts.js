@@ -2,7 +2,7 @@ $(document).ready(function(){
   let myWords = [];
   let pigWords = [];
   let regEx = /[.,\/#!$%\^&\*;:'"{}=\-_`~()]/g;
-  let numRegEx = /[0,1,3,4,8]/g;
+  let numRegEx = /[0,1,3,4,7,8]/g;
   const vowelArr = ['a', 'e', 'i', 'o', 'u'];
   const vowelArrY = ['a', 'e', 'i', 'o', 'u', 'y'];
 
@@ -22,10 +22,12 @@ $(document).ready(function(){
   function changeWords(myArr, len){
     var vowelFlag = false;
     var puncFlag = false;
+    var pureNum = false;
     console.log('changeWords is being called for the array [' + myArr + "], which has a length of " + len);
     for(var i = 0; i < len; i++){
       var pigWord;
-      if(!!myArr[i].match(numRegEx) && myArr[i].length > 1){
+      pureNum = isNum(myArr[i]);
+      if(!!myArr[i].match(numRegEx) && !pureNum){
         myArr[i] = leetSpeak(myArr[i]);
       }
       if(!isNaN(myArr[i])){
@@ -156,7 +158,7 @@ $(document).ready(function(){
     }
     return answer;
   };
-  function leetSpeak(myStr, numArr){
+  function leetSpeak(myStr){
     console.log('l33t H4X0R detected....');
     var answerStr = '';
     for(var i = 0; i < myStr.length; i++){
@@ -183,9 +185,22 @@ $(document).ready(function(){
       case '4':
         return 'a';
         break;
+      case '7':
+        return 't';
+        break;
       case '8':
         return 'ate';
         break;
     }
-  }
+  };
+  function isNum(myStr){
+    var isPureNum = true;
+    for(var i = 0; i < myStr.length; i++){
+      if(isNaN(myStr[i])){
+        isPureNum = false;
+        break;
+      }
+    }
+    return isPureNum;
+  };
 });
