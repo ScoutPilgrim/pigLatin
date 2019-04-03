@@ -3,6 +3,7 @@ $(document).ready(function(){
   let pigWords = [];
   let regEx = /[.,\/#!$%\^&\*;:'"{}=\-_`~()]/g;
   let numRegEx = /[0,1,3,4,7,8]/g;
+  let l33t = /\b(1337)\b/g;
   const vowelArr = ['a', 'e', 'i', 'o', 'u'];
   const vowelArrY = ['a', 'e', 'i', 'o', 'u', 'y'];
 
@@ -27,6 +28,9 @@ $(document).ready(function(){
     for(var i = 0; i < len; i++){
       var pigWord;
       pureNum = isNum(myArr[i]);
+      if(!!myArr[i].match(l33t)){
+        myArr[i] = 'ELITE';
+      }
       if(!!myArr[i].match(numRegEx) && !pureNum){
         myArr[i] = leetSpeak(myArr[i]);
       }
