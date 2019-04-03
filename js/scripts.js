@@ -38,7 +38,7 @@ $(document).ready(function(){
       }
       vowelFlag = checkVowel(myArr[i]);
       if(vowelFlag){
-        pigWord = vowelLogic(myArr[i], len);
+        pigWord = vowelLogic(myArr[i], myArr[i].length);
         console.log('pigWord for case vowel is ' + pigWord);
         pigWords[i] = pigWord;
       }else{
