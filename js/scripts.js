@@ -14,7 +14,6 @@ $(document).ready(function(){
     console.log(n);
     changeWords(myWords, n);
     console.log(pigWords);
-
   });
   function changeWords(myArr, len){
     var vowelFlag = false;
@@ -22,6 +21,11 @@ $(document).ready(function(){
     for(var i = 0; i < len; i++){
       var pigWord;
       vowelFlag = checkVowel(myArr[i]);
+      if(!isNaN(myArr[i])){
+        console.log('Found the number, ' + myArr[i] + ' at index ' + i + '! Not changing it.');
+        pigWords[i] = myArr[i];
+        continue;
+      }
       if(vowelFlag){
         pigWord = vowelLogic(myArr[i]);
         console.log('pigWord for case vowel is ' + pigWord);
