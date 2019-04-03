@@ -51,6 +51,7 @@ $(document).ready(function(){
     return isVowel;
   };
   function checkVowelChar(myChar){
+    console.log('checkVowelChar is being called for char ' + myChar);
     var isVowel = false;
     for(var i = 0; i < vowelArrY.length; i++){
       if(myChar === vowelArrY[i]){
@@ -61,29 +62,44 @@ $(document).ready(function(){
     return isVowel;
   };
   function vowelLogic(myStr){
-    var pigStr;
     console.log('vowelLogic is being called for the string ' + myStr);
+    var pigStr;
     pigStr = myStr + 'way';
     return pigStr;
   };
   function qCheck(myChar){
     var isQ = false;
     if(myChar === 'q' || myChar === 'Q'){
+      console.log('Found a char that is q');
       isQ = true;
     }
     return isQ;
   };
+  function uAfter(myChar){
+    var isU = false;
+    if(myChar === 'u' || myChar === 'U'){
+      console.log('Found a char that is u');
+      isU = true;
+    }
+    return isU;
+  };
   function consonantLogic(myStr){
+    console.log('consonantLogic is being called for the string ' + myStr);
      var consBlock = '';
      var isVowel = false;
      var isQ = false;
+     var isU = false;
      var consBlockLen = 0;
      var answerStr = '';
      var ending = 'ay';
      for(var i = 0; i < myStr.length; i++){
        isVowel = checkVowelChar(myStr[i]);
-       isQ = qCheck(myStr[i]);
-       if(isQ){
+       if(i < (myStr.length - 1)){
+         isQ = qCheck(myStr[i]);
+         isU = uAfter(myStr[i + 1]);
+       }
+       if(isQ && isU){
+         console.log('Found a q followed by a u!');
          consBlock += (myStr[i] + myStr[i + 1]);
          consBlockLen += 2;
          break;
