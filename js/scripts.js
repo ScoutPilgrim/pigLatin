@@ -1,7 +1,7 @@
 $(document).ready(function(){
   let myWords = [];
   let pigWords = [];
-  let regEx = /[.,\/#!$%\^&\*;:'{}=\-_`~()]/g;
+  let regEx = /[.,\/#!$%\^&\*;:'"{}=\-_`~()]/g;
   const vowelArr = ['a', 'e', 'i', 'o', 'u'];
   const vowelArrY = ['a', 'e', 'i', 'o', 'u', 'y'];
 
