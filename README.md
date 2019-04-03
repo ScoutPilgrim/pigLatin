@@ -10,6 +10,7 @@
 * Checks for word length
 * Edits words based on how many consonants are at the beginning
 * looks for 'qu' and moves them together
+* Added avery basic '1337 sp33k' filter to practice with strings. Try entering: (1337 sk8r h8r m8 88).
 #### The MIT License
 
 #### Copyright (c) 2019 Ian Christner

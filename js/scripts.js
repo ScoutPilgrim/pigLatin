@@ -2,7 +2,7 @@ $(document).ready(function(){
   let myWords = [];
   let pigWords = [];
   let regEx = /[.,\/#!$%\^&\*;:'"{}=\-_`~()]/g;
-  let numRegEx = /[0,1,3,4,7,8]/g;
+  let numRegEx = /[0,1,3,4,5,7,8]/g;
   let l33t = /\b(1337)\b/g;
   const vowelArr = ['a', 'e', 'i', 'o', 'u'];
   const vowelArrY = ['a', 'e', 'i', 'o', 'u', 'y'];
@@ -188,6 +188,9 @@ $(document).ready(function(){
         break;
       case '4':
         return 'a';
+        break;
+      case '5':
+        return 's';
         break;
       case '7':
         return 't';
