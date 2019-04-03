@@ -53,7 +53,7 @@ $(document).ready(function(){
     var isVowel = false;
     var firstChar = myStr.substring(0,1);
     for(var i = 0; i < vowelArr.length; i++ ){
-      if(firstChar === vowelArr[i]){
+      if(firstChar.toLowerCase() === vowelArr[i]){
         isVowel = true;
         break;
       }
@@ -65,7 +65,7 @@ $(document).ready(function(){
     console.log('checkVowelChar is being called for char ' + myChar);
     var isVowel = false;
     for(var i = 0; i < vowelArrY.length; i++){
-      if(myChar === vowelArrY[i]){
+      if(myChar.toLowerCase() === vowelArrY[i]){
         isVowel = true;
         break;
       }
