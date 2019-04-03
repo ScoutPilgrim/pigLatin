@@ -10,13 +10,24 @@
   </head>
   <body>
     <div class="container">
+      <div class="centerW">
+        <h1>Pig Latin Translator!</h1>
+      </div>
       <form id="plForm">
         <div class="form-group">
           <label for="myString">Enter a phrase you want to translate to Pig Latin!</label>
           <input type="text" class="form-control" id="myString" placeholder="Enter a word or sentence!">
-          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary form-control">Submit</button>
         </div>
       </form>
+      <div class="centerW">
+        <h2>Your Translation: </h2>
+      </div>
+      <div id="answerDiv">
+        <p></p>
+      </div>
     </div>
   </body>
 </html>

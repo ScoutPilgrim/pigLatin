@@ -14,6 +14,7 @@ $(document).ready(function(){
     console.log(n);
     changeWords(myWords, n);
     console.log(pigWords);
+    $('#answerDiv').find('p').text(pigWords);
   });
   function changeWords(myArr, len){
     var vowelFlag = false;
@@ -27,7 +28,7 @@ $(document).ready(function(){
       }
       vowelFlag = checkVowel(myArr[i]);
       if(vowelFlag){
-        pigWord = vowelLogic(myArr[i]);
+        pigWord = vowelLogic(myArr[i], len);
         console.log('pigWord for case vowel is ' + pigWord);
         pigWords[i] = pigWord;
       }else{
@@ -61,10 +62,15 @@ $(document).ready(function(){
     }
     return isVowel;
   };
-  function vowelLogic(myStr){
+  function vowelLogic(myStr, len){
     console.log('vowelLogic is being called for the string ' + myStr);
     var pigStr;
-    pigStr = myStr + 'way';
+    if(len === 1){
+      console.log('Word is 1 letter, Addressing Special Case!');
+      pigStr = myStr + 'ay';
+    }else{
+      pigStr = myStr + 'way';
+    }
     return pigStr;
   };
   function qCheck(myChar){
