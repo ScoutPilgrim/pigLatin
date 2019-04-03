@@ -2,6 +2,7 @@ $(document).ready(function(){
   let myWords = [];
   let pigWords = [];
   let regEx = /[.,\/#!$%\^&\*;:'"{}=\-_`~()]/g;
+  let numRegEx = /[0,1,3,4,8]/g;
   const vowelArr = ['a', 'e', 'i', 'o', 'u'];
   const vowelArrY = ['a', 'e', 'i', 'o', 'u', 'y'];
 
@@ -24,6 +25,9 @@ $(document).ready(function(){
     console.log('changeWords is being called for the array [' + myArr + "], which has a length of " + len);
     for(var i = 0; i < len; i++){
       var pigWord;
+      if(!!myArr[i].match(numRegEx) && myArr[i].length > 1){
+        myArr[i] = leetSpeak(myArr[i]);
+      }
       if(!isNaN(myArr[i])){
         console.log('Found the number, ' + myArr[i] + ' at index ' + i + '! Not changing it.');
         pigWords[i] = myArr[i];
@@ -152,4 +156,36 @@ $(document).ready(function(){
     }
     return answer;
   };
+  function leetSpeak(myStr, numArr){
+    console.log('l33t H4X0R detected....');
+    var answerStr = '';
+    for(var i = 0; i < myStr.length; i++){
+      if(isNaN(myStr[i])){
+        answerStr += myStr[i];
+      }else{
+        answerStr += whichNum(myStr[i]);
+      }
+    }
+    console.log('Translated l33t speak is ' + answerStr);
+    return answerStr;
+  };
+  function whichNum(myChar){
+    switch (myChar) {
+      case '0':
+        return 'o';
+        break;
+      case '1':
+        return 'l';
+        break;
+      case '3':
+        return 'e';
+        break;
+      case '4':
+        return 'a';
+        break;
+      case '8':
+        return 'ate';
+        break;
+    }
+  }
 });
