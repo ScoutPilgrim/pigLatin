@@ -15,7 +15,7 @@ $(document).ready(function(){
     console.log(n);
     changeWords(myWords, n);
     console.log(pigWords);
-    answer = convertSentence(pigWords);
+    var answer = convertSentence(pigWords);
     $('#answerDiv').find('p').text(answer);
   });
   function changeWords(myArr, len){
