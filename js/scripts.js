@@ -20,12 +20,12 @@ $(document).ready(function(){
     console.log('changeWords is being called for the array [' + myArr + "], which has a length of " + len);
     for(var i = 0; i < len; i++){
       var pigWord;
-      vowelFlag = checkVowel(myArr[i]);
       if(!isNaN(myArr[i])){
         console.log('Found the number, ' + myArr[i] + ' at index ' + i + '! Not changing it.');
         pigWords[i] = myArr[i];
         continue;
       }
+      vowelFlag = checkVowel(myArr[i]);
       if(vowelFlag){
         pigWord = vowelLogic(myArr[i]);
         console.log('pigWord for case vowel is ' + pigWord);
