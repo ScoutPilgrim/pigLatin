@@ -1,6 +1,7 @@
 $(document).ready(function(){
   let myWords = [];
   let pigWords = [];
+  let regEx = /[.,\/#!$%\^&\*;:'{}=\-_`~()]/g;
   const vowelArr = ['a', 'e', 'i', 'o', 'u'];
   const vowelArrY = ['a', 'e', 'i', 'o', 'u', 'y'];
 
@@ -14,10 +15,13 @@ $(document).ready(function(){
     console.log(n);
     changeWords(myWords, n);
     console.log(pigWords);
-    $('#answerDiv').find('p').text(pigWords);
+    answer = convertSentence(pigWords);
+
+    $('#answerDiv').find('p').text(answer);
   });
   function changeWords(myArr, len){
     var vowelFlag = false;
+    var puncFlag = false;
     console.log('changeWords is being called for the array [' + myArr + "], which has a length of " + len);
     for(var i = 0; i < len; i++){
       var pigWord;
@@ -25,6 +29,10 @@ $(document).ready(function(){
         console.log('Found the number, ' + myArr[i] + ' at index ' + i + '! Not changing it.');
         pigWords[i] = myArr[i];
         continue;
+      }
+      if(!!myArr[i].match(regEx)){
+        console.log('Found punctuation, Eliminating it brutally!');
+        myArr[i] = myArr[i].replace(regEx, '');
       }
       vowelFlag = checkVowel(myArr[i]);
       if(vowelFlag){
@@ -127,5 +135,18 @@ $(document).ready(function(){
     myWords = [];
     pigWords = [];
     console.log('Arrays have been reset!');
-  }
+  };
+  function convertSentence(myArr){
+    var answer = '';
+    var buffer = ' ';
+    for(var i = 0; i < myArr.length; i++){
+      answer += myArr[i];
+      if(i != (myArr.length - 1)){
+        answer += buffer;
+      }else{
+        answer += '!';
+      }
+    }
+    return answer;
+  };
 });
