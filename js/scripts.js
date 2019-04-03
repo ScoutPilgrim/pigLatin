@@ -34,6 +34,9 @@ $(document).ready(function(){
         console.log('Found punctuation, Eliminating it brutally!');
         myArr[i] = myArr[i].replace(regEx, '');
       }
+      if(myArr[i] === ''){
+        continue;
+      }
       vowelFlag = checkVowel(myArr[i]);
       if(vowelFlag){
         pigWord = vowelLogic(myArr[i], len);
